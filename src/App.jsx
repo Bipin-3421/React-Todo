@@ -112,31 +112,37 @@ const App = () => {
   //   );
 
   return (
-    <div className="w-screen h-screen bg-gradient-to-r from-[#060630] to-[#495e7b]   ">
-      <div className="container p-[30px]  m-auto bg-fuchsia-50 shadow-xl rounded-[10px]">
-        <h1 className="text-center text-5xl font-bold mb-4">Todo App of Lee</h1>
-        <form className="flex justify-between p-2 mt-6" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter the todo"
-            onChange={(e) => setInputValue(e.target.value)}
-            value={input}
-            className=" w-40 flex-1 mr-6 rounded-lg  border-2 border-dashed border-blue-500 text-center text-2xl outline-none "
-          />
-          {toggleSubmit ? (
-            <button
-              disabled={!input}
-              className="border-none p-2 bg-[#5865F2] text-slate-50 font-semibold text-2xl  "
-            >
-              Add
-            </button>
-          ) : (
-            <button className="border-none p-2  bg-[#5865F2] text-slate-50 font-semibold text-xl ">
-              Edit
-            </button>
-          )}
-        </form>
-        <ul className="mt-[50px]">
+    <div className=" relative  w-full h-screen bg-gradient-to-r from-[#060630] to-[#495e7b] overflow-hidden   ">
+      <div className=" absolute sm:w-[400px] sm:left-[22%]  left-10 top-[10%]  max-h-[500px] p-3 md:p-5 bg-fuchsia-50 shadow-xl rounded-[15px] overflow-y-auto md:left-[350px] md:w-[800px] hide-scrollbar ">
+        <div>
+          <div className="text-center">
+            <h1 className="md:text-5xl md:mb-8 bg-[hsla(230,79%,89%,1)] text-3xl font-bold mb-4  uppercase  shadow-xl rounded-lg ">
+              Todo App
+            </h1>
+          </div>
+          <form className="flex justify-between " onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter the todo"
+              onChange={(e) => setInputValue(e.target.value)}
+              value={input}
+              className=" flex-1 rounded-[20px] w-[150px] border-2 border-dashed border-blue-500 text-center outline-none md:text-2xl "
+            />
+            {toggleSubmit ? (
+              <button
+                disabled={!input}
+                className="border-none rounded sm:rounded md:rounded-lg ml-2 md:ml-5 p-2 md:p-3 md:w-[120px] md:text-2xl bg-[#5865F2] text-slate-50 font-semibold   "
+              >
+                Add
+              </button>
+            ) : (
+              <button className="border-none rounded sm:rounded md:rounded-lg ml-2 md:ml-5 p-2 md:p-3 md:w-[120px] md:text-2xl bg-[#5865F2] text-slate-50 font-semibold  ">
+                Edit
+              </button>
+            )}
+          </form>
+        </div>
+        <ul className="mt-[30px] md:mt-[45px] p-2">
           {todos.map((todo, index) => (
             <Todo
               todo={todo}
